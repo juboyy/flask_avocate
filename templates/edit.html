@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <h1> Edite seu processo </h1>
+{% endblock %}
+{% block body %}
+<body>
+    <div class="content">
+        <form action="/edit/{{process.id}}" method="POST" onsubmit="return validateForm()">
+            <input type="text" name="processo" id="processo" placeholder="Processo" value="{{process.processo}}">
+            <input type="text" name="cliente" id="cliente" placeholder="Cliente" value="{{process.cliente}}">
+            <input type="date" name="prazo" id="prazo" placeholder="Prazo" value="{{process.prazo}}">
+            <input type="text" name="todo" id="todo" placeholder="To-Do" value="{{process.todo}}">
+            <textarea placeholder="Observação" id="obs" name="obs">{{process.obs}}</textarea>
+            <input type="submit" value="Editar">
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            var prazo = document.getElementById('prazo').value;
+            if (prazo == '') {
+                alert('O Prazo não pode estar vazio!');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+{% endblock %}

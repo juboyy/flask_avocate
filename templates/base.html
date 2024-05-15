@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>avocate</title>
+    <link rel="stylesheet" href="{{url_for("static", filename="styles.css")}}">
+    <header>
+        <h1 class="header-warning">Avocate</h1>
+        <h3 class="subheader-warning"> preview module, please leave feedback</h3>
+    </header>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+</body>
+<footer>
+    <footer>
+        <p>© 2024 Avocate</p>
+        <p>Developed by Finess Tech.</p>    
+    </footer> 
+</footer>
+</html>

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <h1> Dashboard </h1>
+{% endblock %}
+{% block body %}
+<body>
+    <div class="content">
+        {% if processos | length < 1 %}
+        <h4> Não existem processos disponíveis, crie um aqui...</h4>
+        <form  action="/" method="POST">
+            <input type="text" name="processo" id="processo" placeholder="Processo">
+            <input type="text" name="cliente" id="cliente" placeholder="Cliente">
+            <input type="date" name="prazo" id="prazo" placeholder="Prazo">
+            <input type="text" name="todo" id="todo" placeholder="To-Do">
+            <input placeholder="Observação" id="obs" name="obs"></input>
+            <input type="submit" value="Enviar">
+        </form>
+        {% else %}
+        <h4> Adicione um caso de uso </h4>
+        <form  action="/" method="POST">
+            <input type="text" name="processo" id="processo" placeholder="Processo">
+            <input type="text" name="cliente" id="cliente" placeholder="Cliente">
+            <input type="date" name="prazo" id="prazo" placeholder="Prazo">
+            <input type="text" name="todo" id="todo" placeholder="To-Do">
+            <input placeholder="Observação" id="obs" name="obs"></input>
+            <input type="submit" value="Enviar">
+        </form>
+        <table>
+            <tr>
+                <th>Processo</th>
+                <th>Cliente</th>
+                <th>Prazo</th>
+                <th>To-Do</th>
+                <th>Observação</th>
+                <th>Actions</th>
+            </tr>
+            {% for processo in processos %}
+            <tr>
+                <td>{{processo.processo}}</td>
+                <td>{{processo.cliente}}</td>
+                <td>{{processo.prazo}}</td>
+                <td>{{processo.todo}}</td>
+                <td>{{processo.obs}}</td>
+                <td><a href="/delete/{{processo.id}}">Delete</a><br><a href="/edit/{{processo.id}}">Edit</a></td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+
+    </div>
+</body>
+{% endblock %}

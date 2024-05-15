@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: wheat;
+}
+
+.content {
+  max-width: 70%;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 30px;
+  text-align: center;
+  display: grid;
+}
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.content td, .content th {
+  padding: 7px;
+  border-top: 0.5px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+.content form {
+  margin-top: 1%;
+  margin-bottom: 8%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+.content h4 {
+  text-align: start;
+}
+
+.header-warning {
+  background-color: rgb(252, 166, 7);
+  top: 0;
+  width: 100%;
+  border-top-right-radius: 100%;
+}
+
+.subheader-warning {
+  text-align: end;
+  background-color: rgb(252, 7, 7);
+  width: 99%;
+  padding-right: 1%;
+  border-bottom-left-radius: 100%;
+}
+
+footer {
+  background-color: wheat;
+  text-align: center;
+  position: fixed; /* Fixa o rodapé na parte inferior da tela */
+  bottom: 0;
+  width: 100%;
+}/*# sourceMappingURL=styles.css.map */
