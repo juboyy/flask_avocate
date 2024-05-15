@@ -9,6 +9,7 @@ app = Flask(__name__)
 Scss = (app)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///avocado.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 #data class
@@ -22,6 +23,9 @@ class processo(db.Model):
 
     def __repr__(self) -> str:
         return f"{self.id} - {self.processo} - {self.cliente} - {self.prazo} - {self.todo} - {self.obs}"
+
+with app.app_context():
+    db.create_all()
 
 #Homepage
 @app.route("/", methods=["GET", "POST"])
@@ -80,9 +84,6 @@ def edit(id:int):
     else:
         return render_template("edit.html", process=process)
     
-
-if __name__ in "__main__":
-    with app.app_context():
-        db.create_all()
-
+#Debugger and Runner
+if __name__ == "__main__":
     app.run(debug=True)
